@@ -1,7 +1,7 @@
 package com.example;
+
 import org.junit.Assert;
 import org.junit.Test;
-import org.mockito.Mockito;
 import static com.example.constants.Constants.*;
 
 public class FelineTest {

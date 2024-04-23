@@ -1,8 +1,10 @@
 package com.example;
+
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.mockito.*;
 import org.mockito.junit.MockitoJUnitRunner;
+
 import static com.example.constants.Constants.*;
 
 @RunWith(MockitoJUnitRunner.class)
