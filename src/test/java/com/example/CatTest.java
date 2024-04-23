@@ -22,5 +22,4 @@ public class CatTest {
         Mockito.when(feline.eatMeat()).thenReturn(HUNTER_FOOD);
         Assert.assertEquals(cat.getFood(), HUNTER_FOOD);
     }
-
 }

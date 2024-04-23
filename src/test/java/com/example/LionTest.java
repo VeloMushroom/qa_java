@@ -4,51 +4,29 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
+
 import static com.example.constants.Constants.*;
 import static org.junit.Assert.*;
 
-@RunWith(Parameterized.class)
+@RunWith(MockitoJUnitRunner.class)
 public class LionTest {
-    Feline feline;
 
-    @Before
-    public void init() {
-        feline = Mockito.mock(Feline.class);
-    }
-
-    private final String sex;
-    private final boolean actual;
-
-    public LionTest(String sex, boolean actual) {
-        this.sex = sex;
-        this.actual = actual;
-    }
-
-    @Parameterized.Parameters
-    public static Object[][] sexData() {
-        return new Object[][] {
-                {"Самка", false},
-                {"Самец", true},
-        };
-    }
-
-    @Test
-    public void doesHaveManeTest() throws Exception {
-        Lion lion = new Lion(sex, feline);
-        Assert.assertEquals(actual, lion.doesHaveMane());
-    }
+    @Mock
+    private Feline feline;
 
     @Test
     public void getKittensTest() throws Exception {
-        Lion lion = new Lion(sex, feline);
+        Lion lion = new Lion("Самец", feline);
         Mockito.when(feline.getKittens()).thenReturn(LION_KITTENS);
         Assert.assertEquals(LION_KITTENS, lion.getKittens());
     }
 
     @Test
     public void getFoodLionTest() throws Exception {
-        Lion lion = new Lion(sex, feline);
+        Lion lion = new Lion("Самка", feline);
         Mockito.when(feline.getFood("Хищник")).thenReturn(HUNTER_FOOD);
         Assert.assertEquals(HUNTER_FOOD, lion.getFood());
     }

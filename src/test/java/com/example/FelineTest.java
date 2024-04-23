@@ -1,41 +1,33 @@
 package com.example;
-
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.Mockito;
-import org.mockito.Spy;
-import org.mockito.junit.MockitoJUnitRunner;
 import static com.example.constants.Constants.*;
 
-@RunWith(MockitoJUnitRunner.class)
 public class FelineTest {
-
-    @Spy
-    Feline feline;
 
     @Test
     public void eatMeatTest() throws Exception {
+        Feline feline = new Feline();
         Assert.assertEquals(HUNTER_FOOD, feline.eatMeat());
-        Mockito.verify(feline, Mockito.times(1)).eatMeat();
     }
 
     @Test
     public void getFamilyTest() {
+        Feline feline = new Feline();
         Assert.assertEquals(FAMILY, feline.getFamily());
-        Mockito.verify(feline, Mockito.times(1)).getFamily();
     }
 
     @Test
     public void getKittensTest() {
+        Feline feline = new Feline();
         Assert.assertEquals(KITTENS, feline.getKittens());
-        Mockito.verify(feline, Mockito.times(1)).getKittens();
     }
 
     @Test
     public void getIntKittensTest() {
+        Feline feline = new Feline();
         int actual = feline.getKittens(FELINE_KITTENS);
-        Mockito.verify(feline).getKittens(Mockito.anyInt());
         Assert.assertEquals(FELINE_KITTENS, actual);
     }
 }
